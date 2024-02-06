@@ -147,7 +147,7 @@ def add_to_playlist():
     gaana_url = request.form['gaana_url']
     
     # Fetch MP3 link from Gaana API
-    response = requests.get(f'http://127.0.0.1:5001/result/?url={gaana_url}')
+    response = requests.get(f'http://127.0.0.1:8080/result/?url={gaana_url}')
     if response.status_code == 200:
         song_data = response.json()
         mp3_link = song_data.get('link')
