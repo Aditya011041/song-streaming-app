@@ -9,7 +9,7 @@ html,body{
     width: 100%;
     height: 100vh;
     background-attachment: fixed;
-    background: linear-gradient(45deg, #cb70ff, #feb47b) no-repeat;
+    background: linear-gradient(45deg, #cb70ff, #feb47b);
     overflow-x: hidden;
     /* box-shadow: 0 0 0 0px rgba(39, 39, 39, 0.); */
 
