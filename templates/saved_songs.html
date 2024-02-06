@@ -8,7 +8,7 @@
     <style>
         .list{
             list-style-type: none;
-            margin: 0
+            margin: 0;
             padding: 0;
             overflow: hidden;
             width: 260px;
@@ -24,11 +24,12 @@
     <div class="result-container">
         {% for song in songs %}
         <div class="result">
-<!--                 <div class="title-track">
-<!--                     <h3 class="song-name">{{ song[1] }}</h3> -->
-                </div> -->
+                <div class="title-track">
+                    <!-- <h3 class="song-name">{{ song[1] }}</h3> -->
+                    <h3 class="song-name" style="display: none;">{{ song[1] }}</h3>
+                </div>
                 <div class="video-box">
-                    <iframe class="video" width="260" height="215" src="https://www.youtube.com/embed/{{ song[2] }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe class="video" width="360" height="215" src="https://www.youtube.com/embed/{{ song[2] }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <form action="/remove_from_playlist/{{ song[0] }}" method="post">
                     <button type="submit" class="remove-button">Remove</button>
