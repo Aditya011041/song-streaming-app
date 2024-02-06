@@ -80,3 +80,24 @@ body{
     box-shadow: rgb(0, 0, 0) 0 4px 8px, rgba(0, 61, 31, 0.3) 0 7px 13px -3px, #1c1d1b 0 -3px 0 inset;
     transform: translateY(-2px);
 }
+@media only screen and (max-width: 600px) {
+    /* CSS rules for smaller screens */
+    .button {
+      width: 44px;
+      height: 30px;
+      font-size: small;
+    }
+    .title{
+        font-size: medium;
+    }
+}
+@media only screen and (max-width: 283px) {
+    .buttons {
+        width: 80px;
+        /* padding: 2px 6px 4px; */
+        margin-left: 10px;
+        font-size: 14px; 
+        padding-left: 27px;
+        padding-right: 27px;
+    }
+}
