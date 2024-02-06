@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    height: 100vh;
+}
+body{
+    background: linear-gradient(-45deg, #a812ff, #feb47b);
+}
+.title{
+    text-align: center;
+    padding: 20px;
+}
+.myform{
+    display: flex;
+    justify-content: center;
+    padding: 35px;
+}
+.values{
+    border-radius: 15px;
+    border: 2px;
+    height: 30px;
+    width: 250px;
+    padding: 10px 10px 10px 10px;
+    color: black;
+    appearance: none;
+    outline: none;
+}
+.buttons{
+    background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+    border: 0;
+    border-radius: 5px;
+    box-sizing: border-box;
+    width: 80px;
+    padding: 4px 10px 6px 10px;
+    margin-left: 20px;
+    align-items: center;
+    appearance: none;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono",monospace;
+    font-size: 14px;
+    justify-content: center;
+    list-style: none;
+    overflow: hidden;
+    color: white;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow,transform;
+}
+.buttons:hover {
+    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+.values::placeholder{
+    color: rgb(0, 0, 0);
+}
+.button{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 10px;
+    margin-right: 10px;
+    background: antiquewhite;
+    width: 90px;
+    height: 30px;
+    text-align: center;
+    border-radius: 25px;
+    font-size: small;
+    display: block;
+    line-height: 30px;
+    text-decoration: none;
+}
+.button:hover{
+    box-shadow: rgb(0, 0, 0) 0 4px 8px, rgba(0, 61, 31, 0.3) 0 7px 13px -3px, #1c1d1b 0 -3px 0 inset;
+    transform: translateY(-2px);
+}

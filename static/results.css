@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+body {
+    background: linear-gradient(-45deg, #cb70ff, #feb47b);
+    position: relative;
+}
+
+.title {
+    text-align: center;
+    padding: 20px;
+    font-size: large; /* Default font size for title */
+}
+
+.result {
+    padding: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.result-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    flex: 0.94;
+    padding: 20px 10px 6px;
+    color: white;
+    font-weight: 800;
+}
+
+.button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 10px;
+    margin-right: 10px;
+    background: antiquewhite;
+    width: 60px; /* Reduced button width for smaller screens */
+    height: 24px; /* Reduced button height for smaller screens */
+    text-align: center;
+    border-radius: 15px; /* Adjusted button border radius */
+    font-size: smaller; /* Reduced font size for smaller screens */
+    line-height: 24px; /* Adjusted line height */
+    text-decoration: none;
+}
+
+.playlist {
+    margin-top: 8px;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform .2s;
+}
+
+.playlist:hover {
+    transform: scale(1.2);
+}
+
+.button:hover {
+    box-shadow: rgb(0, 0, 0) 0 4px 8px, rgba(0, 61, 31, 0.3) 0 7px 13px -3px, #1c1d1b 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+.song-title {
+    background: linear-gradient(80deg, #00FFFF, #66ff00);
+    -webkit-background-clip: text; 
+    background-clip: text;
+    color: transparent; 
+}
+
+@media screen and (max-width: 330px) {
+    .result {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .button {
+        width: 40px; /* Further reduced button width for smaller screens */
+        height: 20px; /* Further reduced button height for smaller screens */
+        border-radius: 10px; /* Adjusted button border radius */
+        line-height: 20px; /* Adjusted line height */
+        font-size: x-small; /* Further reduced font size for smaller screens */
+    }
+}
+
+@media screen and (max-width: 375px) and (max-height: 667px) {
+    .title {
+        font-size: medium; /* Adjusted font size for smaller screens */
+    }
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="./static/results.css"/>
+</head>
+<body>
+    <h1 class="title">Search Results</h1>
+    
+    <a href="/" class="button">Go Back</a>
+    <div class="result-container">
+        {% for result in results %}
+        <div class="result">
+            <div class="image">
+                <img src="{{ result['thumbnails'][0]['url'] }}" alt="Thumbnail" width="200" height="100">
+            </div>
+           
+            <div class="result-info">
+                <p class="song-title">{{ result['title'] }}</p>
+                <form action="/add_to_playlist" method="post">
+                    <input type="hidden" name="video_id" value="{{ result['videoId'] }}">
+                    <input type="hidden" name="title" value="{{ result['title'] }}">
+                    <input type="hidden" name="gaana_url" value="{{ result['gaana_url'] }}">
+                    <input type="hidden" name="query" value="{{ query }}">
+                    <button class="playlist" type="submit">Add to Playlist</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Page</title>
+    <link rel="stylesheet" href="./static/index.css"/>
+</head>
+<body>
+    <h1 class="title">Search for a Song</h1>
+    <a href="/saved_songs" class="button">playlist</a>
+    <form class="myform" action="/search" method="post">
+        <input class=" values" type="text" name="query" placeholder="Enter song title">
+        <button class="buttons" type="submit">Search</button>
+    </form>
+</body>
+</html>
