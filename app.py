@@ -10,7 +10,7 @@ app = Flask(__name__)
 yt = YTMusic('oauth.json')
 
 # Connect to SQLite database (create if not exists)
-conn = sqlite3.connect('playlist.db')
+conn = sqlite3.connect('myplaylist.db')
 cursor = conn.cursor()
 
 # Create table to store songs
@@ -72,7 +72,7 @@ def add_to_playlist():
 
 @app.route('/saved_songs')
 def saved_songs():
-    conn = sqlite3.connect('playlist.db')
+    conn = sqlite3.connect('myplaylist.db')
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM songs")
     songs = cursor.fetchall()
@@ -83,7 +83,7 @@ def saved_songs():
 @app.route('/remove_from_playlist/<int:song_id>', methods=['POST'])
 def remove_from_playlist(song_id):
     # Remove song from SQLite database
-    conn = sqlite3.connect('playlist.db')
+    conn = sqlite3.connect('myplaylist.db')
     cursor = conn.cursor()
     cursor.execute("DELETE FROM songs WHERE id = ?", (song_id,))
     conn.commit()
