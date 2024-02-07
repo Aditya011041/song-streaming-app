@@ -1,4 +1,4 @@
-from flask import Flask, g, jsonify, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for
 from ytmusicapi import YTMusic
 import sqlite3
 import requests
@@ -8,33 +8,29 @@ app = Flask(__name__)
 # Initialize YTMusic API
 yt = YTMusic('oauth.json')
 
-# Function to get the database connection
-def get_db():
-    db = getattr(g, '_database', None)
-    if db is None:
-        db = g._database = sqlite3.connect('myplaylist.db')
-        db.row_factory = sqlite3.Row
-    return db
-
-# Function to close the database connection
-@app.teardown_appcontext
-def close_connection(exception):
-    db = getattr(g, '_database', None)
-    if db is not None:
-        db.close()
+# Function to establish database connection
+def get_db_connection():
+    if not hasattr(Flask, 'db_connection'):
+        Flask.db_connection = sqlite3.connect('myplaylist.db')
+        Flask.db_connection.row_factory = sqlite3.Row
+    return Flask.db_connection
 
 # Function to execute a query and fetch all rows
 def query_db(query, args=(), one=False):
-    cur = get_db().execute(query, args)
-    rv = cur.fetchall()
-    cur.close()
-    return (rv[0] if rv else None) if one else rv
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute(query, args)
+    result = cursor.fetchall()
+    cursor.close()
+    return (result[0] if result else None) if one else result
 
 # Function to execute a query and commit changes
 def execute_db(query, args=()):
-    db = get_db()
-    db.execute(query, args)
-    db.commit()
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute(query, args)
+    conn.commit()
+    cursor.close()
 
 # Create table to store songs if not exists
 def create_table():
@@ -47,9 +43,7 @@ def create_table():
         )
     ''')
 
-@app.before_first_request
-def initialize_database():
-    create_table()  # Ensure table exists when the app starts
+create_table()  # Ensure table exists when the app starts
 
 @app.route('/', methods=['GET'])
 def index():
